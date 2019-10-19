@@ -10,7 +10,7 @@ Page({
    */
   data: {
     themeA:null,
-    themeB:null
+    bannerB:null
   },
 
   /**
@@ -26,10 +26,10 @@ Page({
   },
   async initAllData() {
     const themeA = await Theme.getHomeLocationA()
-    const themeB = await Banner.getHomeLocationB()
+    const bannerB = await Banner.getHomeLocationB()
     this.setData({
       themeA:themeA[0],
-      themeB
+      bannerB
     })
   },
     
