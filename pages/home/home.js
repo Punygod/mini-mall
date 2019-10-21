@@ -1,5 +1,14 @@
+/*
+ * @Author: kevin
+ * @Date: 2019-10-18 15:24
+ * @LastEditors: kevin
+ * @LastEditTime: 2019-10-21 18:20
+ * @FilePath: /d:\workspace\WeChatProjects\miniprogram-2\pages\home\home.js
+ */
 import { Theme } from "../../model/theme";
 import { Banner } from "../../model/banner";
+import { Category } from "../../model/category";
+import { Activity } from "../../model/activity";
 
 // pages/home/home.js
 // import {config} from "../../config/config"
@@ -10,26 +19,32 @@ Page({
    */
   data: {
     themeA:null,
-    bannerB:null
+    bannerB:null,
+    grid:[],
+    activityD:null,
+    themeE:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    // const data = await Theme.getHomeLocationA()
-    // this.setData({
-    //   topTheme:data[0]
-    // })
-
     this.initAllData()
   },
   async initAllData() {
-    const themeA = await Theme.getHomeLocationA()
+    // const themeA = await Theme.getHomeLocationA()
+    const themes = await Theme.getThemes()
+    // find\filter\map\some\reduce
+    const themeA = themes.find(t => t.name === 't-1')
+    const themeE = themes.find(t => t.name === 't-2')
     const bannerB = await Banner.getHomeLocationB()
+    const grid = await Category.getGridCategory()
+    const activityD = await Activity.getHomeLocationD()
     this.setData({
-      themeA:themeA[0],
-      bannerB
+      themeA:themeA,
+      bannerB,
+      grid,
+      activityD
     })
   },
     

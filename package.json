@@ -1,0 +1,22 @@
+{
+  "name": "miniprogram-2",
+  "version": "1.0.0",
+  "description": "study mini program",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Punygod/mini-mall.git"
+  },
+  "author": "kevin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Punygod/mini-mall/issues"
+  },
+  "homepage": "https://github.com/Punygod/mini-mall#readme",
+  "dependencies": {
+    "lin-ui": "^0.6.7"
+  }
+}

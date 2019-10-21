@@ -1,33 +1,37 @@
+/*
+ * @Author: kevin
+ * @Date: 2019-10-18 17:09
+ * @LastEditors: kevin
+ * @LastEditTime: 2019-10-21 18:06
+ * @FilePath: /d:\workspace\WeChatProjects\miniprogram-2\model\theme.js
+ */
 import { Http } from "../utils/http";
 // 业务对象
 class Theme {
+    static locationA = 't-1'
+    static locationE = 't-2'
+    static locationF = 't-3'
+    static locationH = 't-4'
+
     static async getHomeLocationA() {
         return await Http.request({
             url:'theme/by/names',
             data:{
-                names:'t-1'
+                names:Theme.locationA
             }
         })
-        // wx.request({
-        //     // 模板字符串 ES6
-        //     url: `${config.apiBaseUrl}theme/by/names`,
-        //     // url:"http://se.7yue.pro/v1/theme/by/names",
-        //     method: 'GET',
-        //     data:{
-        //       names:"t-1"
-        //     },
-        //     header:{
-        //       appkey: config.appkey
-        //     },
-        //     success:res => {
-        //       console.log(res)
-        //       callback(res.data)
-        //     //   this.setData({
-        //     //     topTheme:res.data[0]
-        //     //   })
-        //     }
-        //   })
     }
+
+    static async getThemes() {
+        const names = `${Theme.locationA},${Theme.locationE},${Theme.locationF},${Theme.locationH}`
+        return await Http.request({
+            url:'theme/by/names',
+            data: {
+                names
+            }
+        })
+    }
+
 }
 
 export{
