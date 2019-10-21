@@ -19,4 +19,4 @@ npm-debug.log
 yarn-error.log
 .vscode
 package-lock.json
-examples/project.config.json
+miniprogram_npm/
