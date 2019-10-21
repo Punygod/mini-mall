@@ -1,6 +1,9 @@
 <!--pages/home/home.wxml-->
 <view class="home-page">
-  <image class="top-theme" src="{{themeA.entrance_img}}"></image>
+  <!-- <image class="top-theme" src="{{themeA.entrance_img}}" mode="widthFix"></image> -->
+  <!--  src="http://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/aa64034f78f0f7366aa04bda0a55b319eac4138a.jpg" 
+  mode="widthFix" -->
+  <image class="top-theme" src="{{themeA.entrance_img}}" mode="widthFix"></image>
   <swiper class="swiper-img" 
   indicator-dots 
   indicator-active-color="#157658" 
