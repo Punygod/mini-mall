@@ -2,7 +2,7 @@
  * @Author: kevin
  * @Date: 2019-10-18 15:24
  * @LastEditors: kevin
- * @LastEditTime: 2019-10-21 18:20
+ * @LastEditTime: 2019-10-22 16:44
  * @FilePath: /d:\workspace\WeChatProjects\miniprogram-2\pages\home\home.js
  */
 import { Theme } from '../../model/theme'
@@ -21,7 +21,10 @@ Page({
     bannerB: null,
     grid: [],
     activityD: null,
-    themeE: null
+    themeE: null,
+    themeESpu:[],
+    themeF:null,
+    bannerG:null
   },
 
   /**
@@ -33,17 +36,36 @@ Page({
   async initAllData() {
     const theme = new Theme()
     await theme.getThemes()
-    const themeA = await theme.getHomeLocationA()
-    const themeE = await theme.getHomeLocationE()
+    // 主题 A
+    const themeA = theme.getHomeLocationA()
+    // banner B
     const bannerB = await Banner.getHomeLocationB()
+    // 宫格 C
     const grid = await Category.getGridCategory()
+    // 活动 D
     const activityD = await Activity.getHomeLocationD()
+    // 主题 E
+    const themeE = theme.getHomeLocationE()
+    // 主题 E 相关商品 SPU 集合数据
+    let themeESpu = []
+    // 主题 F
+    const themeF = theme.getHomeLocationF()
+    // banner G
+    const bannerG = Banner.getHomeLocatioG()
+    
+    if(themeE.online) {
+      const data = await theme.getHomeLocationEWithSpu()
+      themeESpu = data.spu_list.slice(0,8)
+    }
     this.setData({
       themeA,
-      themeE,
       bannerB,
       grid,
-      activityD
+      activityD,
+      themeE,
+      themeESpu,
+      themeF,
+      bannerG
     })
   },
 

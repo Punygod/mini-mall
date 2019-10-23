@@ -12,4 +12,12 @@
   height: 310rpx;
   margin-top: 20rpx;
   display: flex;
+  margin-bottom: 20rpx;
+}
+.quality {
+  width: 100%;
+  height: 880rpx;
+  display: flex;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
 }

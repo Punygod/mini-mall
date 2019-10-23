@@ -1,5 +1,12 @@
 /*
  * @Author: kevin
+ * @Date: 2019-10-22 09:47
+ * @LastEditors: kevin
+ * @LastEditTime: 2019-10-22 16:48
+ * @FilePath: /d:\workspace\WeChatProjects\miniprogram-2\model\theme.js
+ */
+/*
+ * @Author: kevin
  * @Date: 2019-10-18 17:09
  * @LastEditors: kevin
  * @LastEditTime: 2019-10-21 18:06
@@ -25,21 +32,35 @@ class Theme {
       })
     }
     
-    async getHomeLocationA() {
+    getHomeLocationA() {
       return this.themes.find(t => t.name === Theme.locationA)
     }
     
-    async getHomeLocationE() {
+    getHomeLocationE() {
       return this.themes.find(t => t.name === Theme.locationE)
     }
     
     
-    async getHomeLocationF() {
+    getHomeLocationF() {
       return this.themes.find(t => t.name === Theme.locationF)
     }
     
-    async getHomeLocationH() {
+    getHomeLocationH() {
       return this.themes.find(t => t.name === Theme.locationH)
+    }
+    
+    getHomeLocationEWithSpu() {
+        return this.getThemeSpuByName(Theme.locationE)
+    }
+
+    /**
+     * 通过主题名获取主题下的商品列表
+     * @param {主题名} name 
+     */
+    getThemeSpuByName(name) {
+        return Http.request({
+            url:`theme/name/${name}/with_spu`
+        })
     }
 
 }
