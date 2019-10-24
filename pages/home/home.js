@@ -2,13 +2,14 @@
  * @Author: kevin
  * @Date: 2019-10-18 15:24
  * @LastEditors: kevin
- * @LastEditTime: 2019-10-22 16:44
+ * @LastEditTime: 2019-10-24 17:07
  * @FilePath: /d:\workspace\WeChatProjects\miniprogram-2\pages\home\home.js
  */
 import { Theme } from '../../model/theme'
 import { Banner } from '../../model/banner'
 import { Category } from '../../model/category'
 import { Activity } from '../../model/activity'
+import { SpuPaging } from '../../model/spu-paging'
 
 // pages/home/home.js
 // import {config} from "../../config/config"
@@ -24,7 +25,8 @@ Page({
     themeE: null,
     themeESpu:[],
     themeF:null,
-    bannerG:null
+    bannerG:null,
+    themeH:null
   },
 
   /**
@@ -32,7 +34,21 @@ Page({
    */
   onLoad: async function(options) {
     this.initAllData()
+    this.initBottomSpuList()
   },
+  /**
+   * 加载底部为你推荐商品
+   */
+  async initBottomSpuList() {
+    const paging = SpuPaging.getLatestPaging()
+    const data = await paging.getMoreData()
+    if(!data) {
+      return
+    }
+    // 瀑布流 渲染 数据
+    wx.lin.renderWaterFlow(data.items)
+  },
+
   async initAllData() {
     const theme = new Theme()
     await theme.getThemes()
@@ -51,7 +67,9 @@ Page({
     // 主题 F
     const themeF = theme.getHomeLocationF()
     // banner G
-    const bannerG = Banner.getHomeLocatioG()
+    const bannerG = await Banner.getHomeLocatioG()
+    // 主题 H
+    const themeH = await theme.getHomeLocationH()
     
     if(themeE.online) {
       const data = await theme.getHomeLocationEWithSpu()
@@ -65,7 +83,8 @@ Page({
       themeE,
       themeESpu,
       themeF,
-      bannerG
+      bannerG,
+      themeH
     })
   },
 
