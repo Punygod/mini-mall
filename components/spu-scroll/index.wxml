@@ -1,6 +1,7 @@
 <!--components/spu-scroll/index.wxml-->
 <!-- 引入 外部 wxs 文件 -->
 <!-- <wxs src="../../miniprogram_npm/lin-ui/filter/string.wxs" module="s"></wxs> -->
+<wxs src="../../wxs/price.wxs" module="p"></wxs>
 <view class="container l-class">
     <image class="title" src="{{theme.title_img}}"/>
     <scroll-view scroll-x class="scroll-view">
@@ -12,7 +13,7 @@
                   <!-- <text class="spu-text">{{item.title.length>7?s.substring(item.title,0,7) + '...':item.title}}</text> -->
                   <l-price
                       unit="￥" 
-                      value="{{item.price}}" 
+                      value="{{p.mainPrice(item.price,item.discount_price)}}" 
                       color="#156568" 
                       l-value-class="price-value" 
                       l-unit-class="price-unit"

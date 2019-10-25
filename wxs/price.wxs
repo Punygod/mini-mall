@@ -1,0 +1,32 @@
+/*
+ * @Author: kevin
+ * @Date: 2019-10-25 12:13
+ * @LastEditors: kevin
+ * @LastEditTime: 2019-10-25 12:29
+ * @FilePath: \miniprogram-2\wxs\price.wxs
+ */
+/**
+ * 主要价格
+ */
+function mainPrice(price, discountPrice) {
+    if(!discountPrice) {
+        return price
+    } else {
+        return discountPrice
+    }
+}
+/**
+ * 划线价格
+ */
+function slashedPrice(price, discountPrice) {
+    if(discountPrice) {
+        return price
+    } else {
+        return
+    }
+}
+
+module.exports = {
+    mainPrice:mainPrice,
+    slashedPrice:slashedPrice
+}

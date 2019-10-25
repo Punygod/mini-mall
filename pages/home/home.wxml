@@ -1,36 +1,40 @@
 <!--pages/home/home.wxml-->
-<view class="home-page">
-  <!-- <image class="top-theme" src="{{themeA.entrance_img}}" mode="widthFix"></image> -->
-  <!--  src="http://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/aa64034f78f0f7366aa04bda0a55b319eac4138a.jpg" 
-  mode="widthFix" -->
-  <!-- 主题 A -->
-  <image class="top-theme" src="{{themeA.entrance_img}}" mode="widthFix"></image>
-  <!-- banner B -->
-  <swiper class="swiper-img" 
-    indicator-dots 
-    indicator-active-color="#157658" 
-    circular autoplay interval="{{5000}}" duration="{{500}}">
-      <block wx:for="{{bannerB.items}}" wx:key="{{index}}">
-          <swiper-item>
-              <image class="swiper-img" src="{{item.img}}" />
-          </swiper-item>
-      </block>
-  </swiper>
-  <!-- 宫格 C -->
-  <s-category-grid grid="{{grid}}"></s-category-grid>
-  <!-- 活动 D -->
-  <image class="activity" src="{{activityD.entrance_img}}" />
-  <!-- 主题 E -->
-  <s-spu-scroll wx:if="{{themeE.online}}" theme="{{themeE}}" spu-list="{{themeESpu}}"></s-spu-scroll>
-  <!-- 主题 F -->
-  <image class="quality" src="{{themeF.entrance_img}}"/>
-  <!-- 主题 G -->
-  <s-host-list banner="{{bannerG}}"></s-host-list>
-  <!-- 主题 H -->
-  <image class="fashion" src="{{themeH.entrance_img}}" />
-  <!-- 主题 I -->
-  <view class="spu-bottom">
-    <image class="title-spu-bottom" src="/img/home/title@interest.png" />
-    <l-water-flow generic:l-water-flow-item="s-s-preview"></l-water-flow>
+<l-load-more show
+    end-text='- kevin 作品 -'
+    type="{{loadingType}}">
+  <view slot="content" class="home-page">
+    <!-- <image class="top-theme" src="{{themeA.entrance_img}}" mode="widthFix"></image> -->
+    <!--  src="http://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/aa64034f78f0f7366aa04bda0a55b319eac4138a.jpg" 
+    mode="widthFix" -->
+    <!-- 主题 A -->
+    <image class="top-theme" src="{{themeA.entrance_img}}" mode="widthFix"></image>
+    <!-- banner B -->
+    <swiper class="swiper-img" 
+      indicator-dots 
+      indicator-active-color="#157658" 
+      circular autoplay interval="{{5000}}" duration="{{500}}">
+        <block wx:for="{{bannerB.items}}" wx:key="{{index}}">
+            <swiper-item>
+                <image class="swiper-img" src="{{item.img}}" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-- 宫格 C -->
+    <s-category-grid grid="{{grid}}"></s-category-grid>
+    <!-- 活动 D -->
+    <image class="activity" src="{{activityD.entrance_img}}" />
+    <!-- 主题 E -->
+    <s-spu-scroll wx:if="{{themeE.online}}" theme="{{themeE}}" spu-list="{{themeESpu}}"></s-spu-scroll>
+    <!-- 主题 F -->
+    <image class="quality" src="{{themeF.entrance_img}}"/>
+    <!-- 主题 G -->
+    <s-host-list banner="{{bannerG}}"></s-host-list>
+    <!-- 主题 H -->
+    <image class="fashion" src="{{themeH.entrance_img}}" />
+    <!-- 主题 I -->
+    <view class="spu-bottom">
+      <image class="title-spu-bottom" src="/img/home/title@interest.png" />
+      <l-water-flow generic:l-water-flow-item="s-s-preview"></l-water-flow>
+    </view>
   </view>
-</view>
+</l-load-more>
