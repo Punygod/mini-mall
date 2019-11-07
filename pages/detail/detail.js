@@ -1,3 +1,12 @@
+/*
+ * @Author: kevin
+ * @Date: 2019-10-25 15:45
+ * @LastEditors: kevin
+ * @LastEditTime: 2019-11-07 16:26
+ * @FilePath: \miniprogram-2\pages\detail\detail.js
+ */
+import { Spu } from "../../models/spu"
+
 // pages/detail/detail.js
 Page({
 
@@ -11,8 +20,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+    const pid = options.pid
+    const spu = await Spu.getDetail(pid)
 
+    this.setData({
+      spu
+    })
   },
 
   /**

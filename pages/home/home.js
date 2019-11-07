@@ -2,14 +2,14 @@
  * @Author: kevin
  * @Date: 2019-10-18 15:24
  * @LastEditors: kevin
- * @LastEditTime: 2019-10-25 15:27
+ * @LastEditTime: 2019-11-07 16:02
  * @FilePath: /d:\workspace\WeChatProjects\miniprogram-2\pages\home\home.js
  */
-import { Theme } from '../../model/theme'
-import { Banner } from '../../model/banner'
-import { Category } from '../../model/category'
-import { Activity } from '../../model/activity'
-import { SpuPaging } from '../../model/spu-paging'
+import { Theme } from '../../models/theme'
+import { Banner } from '../../models/banner'
+import { Category } from '../../models/category'
+import { Activity } from '../../models/activity'
+import { SpuPaging } from '../../models/spu-paging'
 
 // pages/home/home.js
 // import {config} from "../../config/config"
