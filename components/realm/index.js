@@ -1,10 +1,5 @@
-/*
- * @Author: kevin
- * @Date: 2019-10-25 16:56
- * @LastEditors: kevin
- * @LastEditTime: 2019-11-07 16:26
- * @FilePath: \miniprogram-2\components\realm\index.js
- */
+import { FenceGroup } from "../models/fence-group"
+
 // components/realm/index.js
 Component({
   /**
@@ -19,6 +14,18 @@ Component({
    */
   data: {
 
+  },
+
+  observers: {
+    'spu':function (spu) {
+      if (!spu) {
+        return
+      }
+      console.log(spu)
+      const fenceGroup = new FenceGroup(spu)
+      // fenceGroup.initFences();
+      fenceGroup.initFences2();
+    }
   },
 
   /**
