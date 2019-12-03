@@ -11,11 +11,11 @@ class FenceGroup {
     this.skuList = spu.sku_list
   }
 
-  initFences() {
+  initFences1() {
     const matrix = this._createMatrix(this.skuList)
     const fences = []
     let currentJ = -1
-    matrix.forEach((el, i, j) => {
+    matrix.each((el, i, j) => {
       if (currentJ !== j) {
         // 开启了 一个新列，需要创建一个新的 Fence
         currentJ = j
@@ -27,7 +27,10 @@ class FenceGroup {
     console.log(fences)
   }
 
-  initFences2() {
+  /**
+   * 相对于 上一种方法，该方法封装性更好，面向对象
+   */
+  initFences() {
     const matrix = this._createMatrix(this.skuList)
     const fences = []
     const AT = matrix.transpose()

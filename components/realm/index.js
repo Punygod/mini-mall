@@ -24,7 +24,7 @@ Component({
       console.log(spu)
       const fenceGroup = new FenceGroup(spu)
       // fenceGroup.initFences();
-      fenceGroup.initFences2();
+      fenceGroup.initFences();
     }
   },
 

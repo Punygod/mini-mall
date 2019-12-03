@@ -18,7 +18,7 @@ class Matrix {
    * 遍历
    * @param {回调函数} cb 
    */
-  forEach(cb) {
+  each(cb) {
     for(let j = 0;j < this.colsNum; j++) {
       for(let i = 0;i < this.rowsNum; i++) {
         cb(this.m[i][j],i,j)
