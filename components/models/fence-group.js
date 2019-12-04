@@ -3,7 +3,8 @@ import { Fence } from "./fence"
 
 class FenceGroup {
   spu
-  skuList
+  skuList = []
+  fences = []
 
   constructor(spu) {
     console.log(spu)
@@ -23,7 +24,7 @@ class FenceGroup {
       }
       fences[currentJ].pushValueTitle(el.value)
     })
-    console.log("fences:")
+    this.fences = fences
     console.log(fences)
   }
 
@@ -39,6 +40,7 @@ class FenceGroup {
       fence.init()
       fences.push(fence)
     })
+    this.fences = fences
     console.log(AT)
     console.log(fences)
   }
