@@ -90,7 +90,7 @@ class Judger {
       const selected = this.skuPending.findSelectedCell(i)
       if (x === i) {
         // 当前行 cell -> path 1-42
-        if (cell.status === CellStatus.SELECTED) {
+        if (this.skuPending.isSelected(cell,x)) {
           return
         }
         const cellCode = this._getCellCode(cell.spec)
