@@ -7,7 +7,7 @@
  */
 // 作者：kevin
 const config = {
-  appkey:'vx1Rd3gNRq60GAkl',
+  appkey:'8gPJyVdwTTIVMuUq',
   apiBaseUrl:'http://se.7yue.pro/v1/'
 }
 export {
