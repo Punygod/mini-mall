@@ -7,9 +7,8 @@
  */
 // 作者：kevin
 const config = {
-  appkey:'vx1Rd3gNRq60GAkl',
-  apiBaseUrl:'http://se.7yue.pro/v1/'
+  // 申请网址 https://www.talelin.com/
+  appkey: '8gPJyVdwTTIVMuUq',
+  apiBaseUrl: 'http://se.7yue.pro/v1/'
 }
-export {
-    config
-}
+export { config }
