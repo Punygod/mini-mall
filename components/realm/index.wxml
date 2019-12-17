@@ -7,7 +7,7 @@
             <view >
                 <view class="price-row">
                     <l-price 
-                        value="666"
+                        value="669"
                         color="#157658"
                         value-size="28"
                         unit-size="20"
