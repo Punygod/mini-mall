@@ -5,7 +5,6 @@
  * @LastEditTime: 2019-11-07 16:07
  * @FilePath: \miniprogram-2\config\config.js
  */
-// 作者：kevin
 const config = {
   // 申请网址 https://www.talelin.com/
   appkey: '8gPJyVdwTTIVMuUq',
