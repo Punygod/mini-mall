@@ -1,14 +1,13 @@
-import { SkuCode } from "./sku-code"
-import { CellStatus } from "../../core/enum"
-import { Cell } from "./cell"
-import { SkuPending } from "./sku-pending"
-import { Joiner } from "../../utils/joiner"
+import { SkuCode } from './sku-code'
+import { CellStatus } from '../../core/enum'
+import { Cell } from './cell'
+import { SkuPending } from './sku-pending'
+import { Joiner } from '../../utils/joiner'
 
 /**
  * 判断 法官
  */
 class Judger {
-
   fenceGroup
   pathDict = []
   skuPending
@@ -17,7 +16,8 @@ class Judger {
     this._initSkuPending()
     this._initPathDict()
   }
-  _initSkuPending () {
+
+  _initSkuPending() {
     this.skuPending = new SkuPending()
   }
 
@@ -33,12 +33,12 @@ class Judger {
    * 判断 cell 状态，并修改
    * @param {Cell} cell
    */
-  judge ({cell, x, y}) {
+  judge({ cell, x, y }) {
     this._changeCurrentCellStatus(cell, x, y)
     // 修改完后，回写到 fencesGroup -> fences -> cell
     // this._updateCell(cell, x, y)
     // 非当前 cell
-    this.fenceGroup.eachCell((cell,x,y) => {
+    this.fenceGroup.eachCell((cell, x, y) => {
       const path = this._findPotentialPath(cell, x, y)
       console.log(path)
       if (!path) {
@@ -53,18 +53,18 @@ class Judger {
     })
   }
 
-  _isInDict (path) {
+  _isInDict(path) {
     return this.pathDict.includes(path)
   }
-  
+
   /**
    * 修改当前状态
-   * @param {Cell} cell 
+   * @param {Cell} cell
    */
   _changeCurrentCellStatus(cell, x, y) {
     if (cell.status === CellStatus.WAITING) {
       this.fenceGroup.fences[x].cells[y].status = CellStatus.SELECTED
-      this.skuPending.insertCell(cell,x)
+      this.skuPending.insertCell(cell, x)
     }
     if (cell.status === CellStatus.SELECTED) {
       this.fenceGroup.fences[x].cells[y].status = CellStatus.WAITING
@@ -72,7 +72,7 @@ class Judger {
     }
   }
 
-  _changeOtherCellStatus(cell,x,y) {
+  _changeOtherCellStatus(cell, x, y) {
     // console.log(x,y,cell)
     const path = this._findPotentialPath(cell, x, y)
     console.log(path)
@@ -80,9 +80,9 @@ class Judger {
 
   /**
    * 找到 潜在路径
-   * @param {Cell} cell 
-   * @param {Number} x 
-   * @param {Number} y 
+   * @param {Cell} cell
+   * @param {Number} x
+   * @param {Number} y
    */
   _findPotentialPath(cell, x, y) {
     const joiner = new Joiner('#')
@@ -90,7 +90,7 @@ class Judger {
       const selected = this.skuPending.findSelectedCell(i)
       if (x === i) {
         // 当前行 cell -> path 1-42
-        if (this.skuPending.isSelected(cell,x)) {
+        if (this.skuPending.isSelected(cell, x)) {
           return
         }
         const cellCode = this._getCellCode(cell.spec)
@@ -101,7 +101,6 @@ class Judger {
           joiner.join(selectedCellCode)
         }
       }
-
     }
     return joiner.getStr()
   }
@@ -114,10 +113,8 @@ class Judger {
     // 定位
     let cells = this.fenceGroup.fences[x].cells
     // 替换
-    cells.splice(y,1,cell)
+    cells.splice(y, 1, cell)
   }
 }
 
-export {
-  Judger
-}
+export { Judger }
